@@ -1,90 +1,117 @@
 import { useEffect, useState } from "react";
 
-function App() {
+function App() 
+{
+  // store all expenses
   const [expenses, setExpenses] = useState([]);
 
-  // form add + edit
-  const [form, setForm] = useState({
+  // form data (used for add and edit)
+  const [form, setForm] = useState
+  ({
     id: null,
     description: "",
     amount: "",
     category: ""
   });
 
+  // check if we are editing
   const [isEditing, setIsEditing] = useState(false);
 
-  // LOAD DATA
-  const loadData = () => {
+  // get data from backend
+  const loadData = () => 
+  {
     fetch("http://localhost:8080/api/expenses")
       .then(res => res.json())
       .then(data => setExpenses(data));
   };
 
-  useEffect(() => {
-    loadData();
+  // run once when page loads
+  useEffect(() => 
+  {
+      loadData();
   }, []);
 
-  // HANDLE INPUT CHANGE
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-  };
+  // update form when user types
+  const handleChange = (e) => 
+    {
+      setForm(
+        {
+          ...form,
+          [e.target.name]: e.target.value
+        });
+    };
 
-  // ADD hoặc UPDATE
-  const handleSubmit = (e) => {
+  // handle submit (add or update)
+  const handleSubmit = (e) => 
+  {
     e.preventDefault();
 
-    // nếu đang edit → PUT
-    if (isEditing) {
-      fetch(`http://localhost:8080/api/expenses/${form.id}`, {
+    // if editing → update
+    if (isEditing) 
+    {
+      fetch(`http://localhost:8080/api/expenses/${form.id}`, 
+      {
         method: "PUT",
-        headers: {
+        headers: 
+        {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
+        body: JSON.stringify(
+        {
           description: form.description,
           amount: parseFloat(form.amount),
           category: form.category
         })
       })
-        .then(res => res.json())
-        .then(() => {
-          loadData(); // reload list
-          resetForm();
-        });
-    } else {
-      // ADD → POST
-      fetch("http://localhost:8080/api/expenses", {
+
+      .then(res => res.json())
+      .then(() => {
+        loadData();   // reload data
+        resetForm();  // clear form
+      });
+
+    } 
+    else 
+    {
+      // add new expense
+      fetch("http://localhost:8080/api/expenses", 
+      {
         method: "POST",
-        headers: {
+        headers: 
+        {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
+        body: JSON.stringify(
+        {
           description: form.description,
           amount: parseFloat(form.amount),
           category: form.category
         })
       })
         .then(res => res.json())
-        .then(() => {
+        .then(() => 
+        {
           loadData();
           resetForm();
         });
     }
   };
 
-  // DELETE
-  const handleDelete = (id) => {
-    fetch(`http://localhost:8080/api/expenses/${id}`, {
+  // delete an expense
+  const handleDelete = (id) => 
+  {
+    fetch(`http://localhost:8080/api/expenses/${id}`, 
+    {
       method: "DELETE"
-    }).then(() => loadData());
+    })
+    .then(() => loadData());
   };
 
-  // CLICK EDIT
-  const handleEdit = (expense) => {
-    setForm({
+  // click edit -> fill form with data
+  const handleEdit = (expense) => 
+  {
+    setForm(
+    {
       id: expense.id,
       description: expense.description,
       amount: expense.amount,
@@ -93,9 +120,11 @@ function App() {
     setIsEditing(true);
   };
 
-  // RESET FORM
-  const resetForm = () => {
-    setForm({
+  // reset form
+  const resetForm = () => 
+  {
+    setForm(
+    {
       id: null,
       description: "",
       amount: "",
@@ -108,7 +137,7 @@ function App() {
     <div style={{ padding: "20px" }}>
       <h1>Expense Tracker</h1>
 
-      {/* FORM */}
+      {/* form */}
       <form onSubmit={handleSubmit}>
         <input
           name="description"
@@ -133,6 +162,7 @@ function App() {
           {isEditing ? "Update" : "Add"}
         </button>
 
+        {/* cancel edit */}
         {isEditing && (
           <button type="button" onClick={resetForm}>
             Cancel
@@ -142,7 +172,7 @@ function App() {
 
       <hr />
 
-      {/* LIST */}
+      {/* list */}
       {expenses.length === 0 ? (
         <p>No data yet</p>
       ) : (
@@ -150,12 +180,12 @@ function App() {
           <div key={e.id} style={{ marginBottom: "10px" }}>
             {e.description} - ${e.amount} ({e.category})
 
-            {/* EDIT */}
+            {/* edit button */}
             <button onClick={() => handleEdit(e)}>
               Edit
             </button>
 
-            {/* DELETE */}
+            {/* delete button */}
             <button onClick={() => handleDelete(e.id)}>
               Delete
             </button>

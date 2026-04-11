@@ -3,7 +3,8 @@ package com.example.tracker.model;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+@Table(name = "app_user")
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,6 +12,9 @@ public class User {
 
     private String email;
     private String password;
+
+    public AppUser() {}
+
 
     //geter and seter
     public Long getId() 

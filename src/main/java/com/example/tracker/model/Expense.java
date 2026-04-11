@@ -1,10 +1,9 @@
 package com.example.tracker.model;
-
 import jakarta.persistence.*;
 
 @Entity
-public class Expense {
-
+public class Expense 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,40 +12,50 @@ public class Expense {
     private double amount;
     private String category;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private AppUser user;
 
     public Expense() {}
 
     // getters + setters
-
-    public Long getId() {
+    public Long getId() 
+    {
         return id;
     }
 
-    public String getDescription() {
+    public String getDescription() 
+    {
         return description;
     }
 
-    public double getAmount() {
+    public double getAmount() 
+    {
         return amount;
     }
 
-    public String getCategory() {
+    public String getCategory() 
+    {
         return category;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id) 
+    {
         this.id = id;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) 
+    {
         this.description = description;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(double amount) 
+    {
         this.amount = amount;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(String category) 
+    {
         this.category = category;
     }
 }

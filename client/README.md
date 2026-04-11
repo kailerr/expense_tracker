@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# EXPENSE TRACKER SUMMARY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## P1 — Basic Spring Boot
 
-## Available Scripts
+_ Setup project
+_ Run server
+_ Test API
 
-In the project directory, you can run:
+Result: working
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## P2 — Database + CRUD
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+_ Connect H2 database
+_ Create Expense entity
+_ Create repository
+_ Basic CRUD
 
-### `npm test`
+Result: working
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## P3 — React Connect
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_ Frontend calls backend API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Result: connected
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## P4 — Full CRUD
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+_ Get by ID
+_ Update
+_ Delete
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Result: working
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## P5 — Auth + User
 
-## Learn More
+_ User entity + repository
+_ Register, login API
+_ Link Expense → User
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Result: working (basic)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## P6 — Advanced (partial)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### P6.1 — Service Layer
 
-### Analyzing the Bundle Size
+_ Move logic to service
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Result: done
 
-### Making a Progressive Web App
+### P6.2 — Search
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+_ Search by category
+_ Search by keyword
 
-### Advanced Configuration
+Result: done
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Current Status
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+_ CRUD: done
+_ Service layer: done
+_ Search: done
+_ Project runs normally
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## In Progress
+
+- Filter expenses by category  
+- Filter expenses by userId  
+- Calculate statistics:
+  - total spend  
+  - average  
+  - highest  
+  - number of expenses  
+- Filter expenses by date  
+- Update expense  
+- Delete expense  
+- Attach user to expense when creating  
+
+---> FRONTEND
+

@@ -49,11 +49,7 @@ public class ExpenseController
     @GetMapping("/{id}")
     public Expense getExpenseById(@PathVariable Long id) 
     {
-        //find expense by id using service
-        return expenseService.getAll().stream()
-            .filter(e -> e.getId().equals(id))
-            .findFirst()
-            .orElseThrow(() -> new RuntimeException("Expense not found with id: " + id));
+        return expenseService.getById(id);
     }
 
 
@@ -61,20 +57,9 @@ public class ExpenseController
     @PutMapping("/{id}")
     public Expense updateExpense(@PathVariable Long id, @RequestBody Expense updatedExpense) 
     {
-
-        //find existing expense
-        Expense expense = expenseService.getAll().stream()
-            .filter(e -> e.getId().equals(id))
-            .findFirst()
-            .orElseThrow(() -> new RuntimeException("Expense not found"));
-
-        //update field
-        expense.setDescription(updatedExpense.getDescription());
-        expense.setAmount(updatedExpense.getAmount());
-        expense.setCategory(updatedExpense.getCategory());
-
-        return expenseService.save(expense);
+        return expenseService.update(id, updatedExpense);
     }
+
 
 
     // =========DELETE EXPENSE=============
@@ -84,4 +69,24 @@ public class ExpenseController
         //delegate to service to delete expense by id
         expenseService.delete(id);
     }
-}//test
+
+
+    // ===========ADD SEARCH=============
+    @GetMapping("/search")
+    public List<Expense> search(@RequestParam(value = "category", required = false) String category,
+                                @RequestParam(value = "keyword", required = false) String keyword) 
+    {
+
+        if (category != null) 
+        {
+            return expenseService.searchByCategory(category);
+        }
+
+        if (keyword != null) 
+        {
+            return expenseService.searchByKeyword(keyword);
+        }
+
+        return expenseService.getAll();
+    }
+}

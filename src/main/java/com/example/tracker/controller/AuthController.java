@@ -1,6 +1,6 @@
 package com.example.tracker.controller;
 
-import com.example.tracker.model.User;
+import com.example.tracker.model.AppUser;
 import com.example.tracker.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +18,7 @@ public class AuthController
 
     // ================REGISTER=========================
     @PostMapping("/register")
-    public User register(@RequestBody User user) 
+    public AppUser register(@RequestBody AppUser user) 
     {
 
         //check if email already exists
@@ -26,16 +26,18 @@ public class AuthController
         {
             throw new RuntimeException("Email already exists");
         }
+
         //save user in database
         return userRepo.save(user);
     }
 
     // ==========LOGIN=========================
     @PostMapping("/login")
-    //find user bu email
-    public User login(@RequestBody User user) 
+    public AppUser login(@RequestBody AppUser user) 
     {
-        User existing = userRepo.findByEmail(user.getEmail())
+
+        //find user by email
+        AppUser existing = userRepo.findByEmail(user.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         //password check
@@ -43,6 +45,7 @@ public class AuthController
         {
             throw new RuntimeException("Wrong password");
         }
+
         return existing;
     }
-}//testchange
+}
