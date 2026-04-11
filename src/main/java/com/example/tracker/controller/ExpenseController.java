@@ -3,6 +3,7 @@ package com.example.tracker.controller;
 import com.example.tracker.model.Expense;
 import com.example.tracker.repository.ExpenseRepository;
 import org.springframework.web.bind.annotation.*;
+import com.example.tracker.repository.UserRepository; //
 
 import java.util.List;
 
@@ -12,12 +13,15 @@ import java.util.List;
 public class ExpenseController 
 {
     private final ExpenseRepository expenseRepository;
+     private final UserRepository userRepo;
 
     // constructor injection
-    public ExpenseController(ExpenseRepository expenseRepository) 
+    public ExpenseController(ExpenseRepository expenseRepository, UserRepository userRepo)
     {
         this.expenseRepository = expenseRepository;
+        this.userRepo = userRepo;
     }
+
 
 
     // =============GET ALL EXPENSES============
@@ -73,4 +77,4 @@ public class ExpenseController
     {
         expenseRepository.deleteById(id);
     }
-}
+}//test
