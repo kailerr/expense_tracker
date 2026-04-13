@@ -61,4 +61,13 @@ public class ExpenseService
     {
         return repo.findByCategory(category);
     }
-}
+
+    //create expense with rounded amount
+    public Expense createExpense(Expense expense) 
+    {
+        double rounded = Math.round(expense.getAmount() * 100) / 100.0;
+        expense.setAmount(rounded);
+
+        return repo.save(expense);
+    }
+}//
