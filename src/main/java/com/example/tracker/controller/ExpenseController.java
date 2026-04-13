@@ -2,6 +2,10 @@ package com.example.tracker.controller;
 
 import com.example.tracker.model.Expense;
 import com.example.tracker.service.ExpenseService;
+
+import jakarta.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.tracker.repository.ExpenseRepository;
@@ -39,9 +43,10 @@ public class ExpenseController
     // ==============CREATE NEW EXPENSE==================
 
     @PostMapping
-    public Expense createExpense(@RequestBody Expense expense) 
+    public ResponseEntity<?> createExpense(@Valid @RequestBody Expense expense) 
     {
-        return expenseService.save(expense);
+        Expense save = expenseService.createExpense(expense);
+        return ResponseEntity.ok(save);
     }
 
 
