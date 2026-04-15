@@ -23,6 +23,15 @@ export default function ExpenseTracker({ user, onLogout }) {
     setExpenses(expenses.filter((exp) => exp.id !== id));
   };
 
+  const avg =
+  expenses.length > 0
+    ? total / expenses.length
+    : 0;
+
+const highest =
+  expenses.length > 0
+    ? Math.max(...expenses.map(e => e.amount))
+    : 0;
   const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
 
   return (
