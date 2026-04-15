@@ -37,6 +37,7 @@ const styles = `
     padding: 40px 36px;
     animation: fadeUp 0.3s ease;
   }
+
   .auth-logo {
     width: 32px;
     height: 32px;
@@ -47,17 +48,20 @@ const styles = `
     align-items: center;
     justify-content: center;
   }
+
   .auth-title {
     font-size: 20px;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 6px;
   }
+
   .auth-sub {
     font-size: 13px;
     color: var(--text-muted);
     margin-bottom: 28px;
   }
+
   .field-label {
     display: block;
     font-size: 12px;
@@ -66,7 +70,9 @@ const styles = `
     margin-bottom: 6px;
     letter-spacing: 0.02em;
   }
+
   .field-wrap { margin-bottom: 16px; }
+
   .auth-input {
     width: 100%;
     background: #1c1c1c;
@@ -79,8 +85,10 @@ const styles = `
     outline: none;
     transition: border-color 0.15s;
   }
+
   .auth-input::placeholder { color: #3d3d3d; }
   .auth-input:focus { border-color: var(--border-focus); }
+
   .auth-btn {
     width: 100%;
     background: var(--text);
@@ -96,12 +104,15 @@ const styles = `
     margin-bottom: 20px;
     transition: opacity 0.15s;
   }
+
   .auth-btn:hover { opacity: 0.88; }
+
   .auth-toggle {
     font-size: 13px;
     color: var(--text-muted);
     text-align: center;
   }
+
   .auth-toggle span {
     color: var(--text-sub);
     cursor: pointer;
@@ -109,6 +120,7 @@ const styles = `
     text-decoration: underline;
     text-underline-offset: 2px;
   }
+
   .auth-toggle span:hover { color: var(--text); }
 
   /* DASHBOARD LAYOUT */
@@ -235,22 +247,26 @@ const styles = `
     flex: 1;
     min-width: 0;
   }
+
   .tracker-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
   }
+
   .tracker-title {
     font-size: 15px;
     font-weight: 600;
     color: var(--text);
   }
+
   .tracker-email {
     font-size: 13px;
     color: var(--text-muted);
     margin-top: 2px;
   }
+
   .logout-btn {
     background: none;
     border: 1px solid var(--border);
@@ -262,7 +278,11 @@ const styles = `
     cursor: pointer;
     transition: border-color 0.15s, color 0.15s;
   }
-  .logout-btn:hover { border-color: var(--border-focus); color: var(--text); }
+
+  .logout-btn:hover {
+    border-color: var(--border-focus);
+    color: var(--text);
+  }
 
   /* Total */
   .total-card {
@@ -275,20 +295,87 @@ const styles = `
     justify-content: space-between;
     align-items: center;
   }
+
   .total-label {
     font-size: 13px;
     color: var(--text-muted);
   }
+
   .total-count {
     font-size: 12px;
     color: #3a3a3a;
     margin-top: 2px;
   }
+
   .total-amount {
     font-size: 28px;
     font-weight: 300;
     color: var(--text);
     letter-spacing: -0.5px;
+  }
+
+  /* Category Summary */
+  .summary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+
+  .summary-title {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .summary-empty {
+    font-size: 13px;
+    color: #333;
+    padding: 10px 0;
+  }
+
+  .category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .category-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .category-name {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .category-value {
+    font-size: 13px;
+    color: var(--text-sub);
+  }
+
+  .category-bar {
+    width: 100%;
+    height: 8px;
+    background: #1c1c1c;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .category-fill {
+    height: 100%;
+    background: var(--text);
+    border-radius: 999px;
   }
 
   /* Add Row */
@@ -302,6 +389,7 @@ const styles = `
     gap: 8px;
     align-items: center;
   }
+
   .add-input {
     flex: 1;
     background: #1c1c1c;
@@ -314,9 +402,18 @@ const styles = `
     outline: none;
     transition: border-color 0.15s;
   }
+
   .add-input::placeholder { color: #3d3d3d; }
   .add-input:focus { border-color: var(--border-focus); }
+
   .add-input-amt { flex: 0 0 100px; }
+
+  .add-select {
+    flex: 0 0 140px;
+    appearance: none;
+    cursor: pointer;
+  }
+
   .add-btn {
     background: var(--text);
     border: none;
@@ -334,6 +431,7 @@ const styles = `
     font-weight: 300;
     line-height: 1;
   }
+
   .add-btn:hover { opacity: 0.85; }
 
   /* List */
@@ -343,12 +441,14 @@ const styles = `
     border-radius: 8px;
     overflow: hidden;
   }
+
   .list-empty {
     padding: 32px;
     text-align: center;
     font-size: 13px;
     color: #333;
   }
+
   .expense-item {
     display: flex;
     justify-content: space-between;
@@ -358,23 +458,34 @@ const styles = `
     transition: background 0.1s;
     animation: slideIn 0.2s ease;
   }
+
   .expense-item:last-child { border-bottom: none; }
   .expense-item:hover { background: #1c1c1c; }
+
   .expense-name {
     font-size: 14px;
     color: var(--text);
     font-weight: 400;
   }
+
+  .expense-category {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
   .expense-right {
     display: flex;
     align-items: center;
     gap: 14px;
   }
+
   .expense-amount {
     font-size: 14px;
     color: var(--text-sub);
     font-variant-numeric: tabular-nums;
   }
+
   .del-btn {
     background: none;
     border: none;
@@ -387,12 +498,14 @@ const styles = `
     display: flex;
     align-items: center;
   }
+
   .del-btn:hover { color: var(--red); }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
   @keyframes slideIn {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -409,6 +522,20 @@ const styles = `
     }
 
     .tracker-wrap {
+      width: 100%;
+    }
+
+    .add-row {
+      flex-wrap: wrap;
+    }
+
+    .add-input,
+    .add-select,
+    .add-input-amt {
+      flex: 1 1 100%;
+    }
+
+    .add-btn {
       width: 100%;
     }
   }
@@ -445,11 +572,19 @@ function Auth({ onLogin }) {
     <div className="auth-card">
       <div className="auth-logo">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M2 5h12M2 8h8M2 11h10" stroke="#0f0f0f" strokeWidth="1.5" strokeLinecap="round"/>
+          <path
+            d="M2 5h12M2 8h8M2 11h10"
+            stroke="#0f0f0f"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
         </svg>
       </div>
+
       <h1 className="auth-title">{isLogin ? "Welcome back" : "Create account"}</h1>
-      <p className="auth-sub">{isLogin ? "Sign in to your account" : "Start tracking your expenses"}</p>
+      <p className="auth-sub">
+        {isLogin ? "Sign in to your account" : "Start tracking your expenses"}
+      </p>
 
       <div className="field-wrap">
         <label className="field-label">Email</label>
@@ -457,20 +592,21 @@ function Auth({ onLogin }) {
           type="email"
           placeholder="you@example.com"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           className="auth-input"
-          onKeyDown={e => e.key === "Enter" && handleSubmit()}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
         />
       </div>
+
       <div className="field-wrap">
         <label className="field-label">Password</label>
         <input
           type="password"
           placeholder="••••••••"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           className="auth-input"
-          onKeyDown={e => e.key === "Enter" && handleSubmit()}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
         />
       </div>
 
@@ -492,18 +628,45 @@ function ExpenseTracker({ user, onLogout }) {
   const [expenses, setExpenses] = useState([]);
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
+  const [category, setCategory] = useState("Food");
+
+  const categories = ["Food", "Transport", "Shopping", "Bills", "Entertainment", "Other"];
 
   const addExpense = () => {
     if (!title || !amount || isNaN(parseFloat(amount))) return;
-    setExpenses([...expenses, { id: Date.now(), title, amount: parseFloat(amount) }]);
+
+    setExpenses([
+      ...expenses,
+      {
+        id: Date.now(),
+        title,
+        amount: parseFloat(amount),
+        category,
+      },
+    ]);
+
     setTitle("");
     setAmount("");
+    setCategory("Food");
   };
 
-  const deleteExpense = id => setExpenses(expenses.filter(e => e.id !== id));
+  const deleteExpense = (id) => {
+    setExpenses(expenses.filter((e) => e.id !== id));
+  };
+
   const total = expenses.reduce((sum, e) => sum + e.amount, 0);
-  const highest = expenses.length ? Math.max(...expenses.map(e => e.amount)) : 0;
+  const highest = expenses.length ? Math.max(...expenses.map((e) => e.amount)) : 0;
   const average = expenses.length ? total / expenses.length : 0;
+
+  const categoryTotals = categories
+    .map((cat) => {
+      const value = expenses
+        .filter((e) => e.category === cat)
+        .reduce((sum, e) => sum + e.amount, 0);
+
+      return { category: cat, value };
+    })
+    .filter((item) => item.value > 0);
 
   return (
     <div className="dashboard-layout">
@@ -576,39 +739,89 @@ function ExpenseTracker({ user, onLogout }) {
           <span className="total-amount">${total.toFixed(2)}</span>
         </div>
 
+        <div className="summary-card">
+          <p className="summary-title">Spending by Category</p>
+
+          {categoryTotals.length === 0 ? (
+            <p className="summary-empty">Add expenses to see category breakdown</p>
+          ) : (
+            <div className="category-list">
+              {categoryTotals.map((item) => {
+                const percent = total > 0 ? (item.value / total) * 100 : 0;
+
+                return (
+                  <div key={item.category} className="category-item">
+                    <div className="category-row">
+                      <span className="category-name">{item.category}</span>
+                      <span className="category-value">${item.value.toFixed(2)}</span>
+                    </div>
+                    <div className="category-bar">
+                      <div
+                        className="category-fill"
+                        style={{ width: `${percent}%` }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         <div className="add-row">
           <input
             type="text"
             placeholder="Expense name"
             value={title}
-            onChange={e => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
             className="add-input"
-            onKeyDown={e => e.key === "Enter" && addExpense()}
+            onKeyDown={(e) => e.key === "Enter" && addExpense()}
           />
+
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="add-input add-select"
+          >
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+
           <input
             type="number"
             placeholder="0.00"
             value={amount}
-            onChange={e => setAmount(e.target.value)}
+            onChange={(e) => setAmount(e.target.value)}
             className="add-input add-input-amt"
-            onKeyDown={e => e.key === "Enter" && addExpense()}
+            onKeyDown={(e) => e.key === "Enter" && addExpense()}
           />
+
           <button onClick={addExpense} className="add-btn">+</button>
         </div>
 
         <div className="list-card">
-          {expenses.length === 0
-            ? <p className="list-empty">No expenses added yet</p>
-            : expenses.map(exp => (
+          {expenses.length === 0 ? (
+            <p className="list-empty">No expenses added yet</p>
+          ) : (
+            expenses.map((exp) => (
               <div key={exp.id} className="expense-item">
-                <span className="expense-name">{exp.title}</span>
+                <div>
+                  <span className="expense-name">{exp.title}</span>
+                  <p className="expense-category">{exp.category}</p>
+                </div>
+
                 <div className="expense-right">
                   <span className="expense-amount">${exp.amount.toFixed(2)}</span>
-                  <button onClick={() => deleteExpense(exp.id)} className="del-btn">×</button>
+                  <button onClick={() => deleteExpense(exp.id)} className="del-btn">
+                    ×
+                  </button>
                 </div>
               </div>
             ))
-          }
+          )}
         </div>
       </div>
     </div>
